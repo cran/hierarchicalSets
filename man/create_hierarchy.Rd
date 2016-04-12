@@ -4,6 +4,8 @@
 \alias{HierarchicalSet}
 \alias{[.HierarchicalSet}
 \alias{[[.HierarchicalSet}
+\alias{cluster_members.HierarchicalSet}
+\alias{cluster_sizes.HierarchicalSet}
 \alias{clusters.HierarchicalSet}
 \alias{create_hierarchy}
 \alias{element_names.HierarchicalSet}
@@ -12,6 +14,7 @@
 \alias{n_elements.HierarchicalSet}
 \alias{n_sets.HierarchicalSet}
 \alias{print.HierarchicalSet}
+\alias{set_membership.HierarchicalSet}
 \alias{set_names.HierarchicalSet}
 \alias{sets.HierarchicalSet}
 \title{Create and store hierarchcical sets}
@@ -39,6 +42,12 @@ create_hierarchy(sets, intersectLimit = 1)
 \method{n_elements}{HierarchicalSet}(x)
 
 \method{n_clusters}{HierarchicalSet}(x)
+
+\method{cluster_sizes}{HierarchicalSet}(x)
+
+\method{cluster_members}{HierarchicalSet}(x)
+
+\method{set_membership}{HierarchicalSet}(x)
 }
 \arguments{
 \item{sets}{The sets to analyse. Can either be a matrix/data.frame giving the
@@ -49,7 +58,7 @@ columns, or a list of vectors giving the elements of the individual sets.}
 be considered part of the intersect. Standard intersects require it to be
 present in all sets (intersectLimit = 1), which is also the default}
 
-\item{x}{A hierarchicalSet object}
+\item{x}{A HierarchicalSet object}
 
 \item{...}{Currently ignored}
 
@@ -59,12 +68,12 @@ present in all sets (intersectLimit = 1), which is also the default}
 An object of class HierarchicalSet
 }
 \description{
-hierarchicalSet object can be created using the \code{hSet()} constructor.
+HierarchicalSet object can be created using the \code{hSet()} constructor.
 The resulting object will contain both the underlying sets as well as the
 resulting clustering.
 }
 \details{
-The hierarchicalSet class contains both the clustering and the original sets.
+The HierarchicalSet class contains both the clustering and the original sets.
 The former is stored in a list of dendrogram objects in and the latter as a
 presence/absence matrix. Both are retrivable using \code{$clusters} and
 \code{$sets} respectively. Furthermore individual dendrograms can be
@@ -76,11 +85,11 @@ For plotting functionality see the separate plot documentation for
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{print}: Print method for hierarchicalSet objects
+\item \code{print}: Print method for HierarchicalSet objects
 
-\item \code{[[}: Extract dendrogram objects from hierarchicalSet objects
+\item \code{[[}: Extract dendrogram objects from HierarchicalSet objects
 
-\item \code{[}: Subset hierarchicalSet object by dendrogram (preserving set
+\item \code{[}: Subset HierarchicalSet object by dendrogram (preserving set
 information and class)
 
 \item \code{sets}: Extract the sets as a sparse matrix
@@ -98,6 +107,12 @@ information and class)
 \item \code{n_elements}: Get the number of elements
 
 \item \code{n_clusters}: Get the number of clusters
+
+\item \code{cluster_sizes}: Get the size of each clusters
+
+\item \code{cluster_members}: Get the members of each clusters
+
+\item \code{set_membership}: Get the membership of each set
 }}
 \examples{
 data('twitter')
