@@ -4,7 +4,9 @@
 \name{twitter}
 \alias{twitter}
 \title{Followers of 100 twitter users}
-\format{A ngCMatrix with the sets (users) as columns and elements (followers) as rows}
+\format{
+A ngCMatrix with the sets (users) as columns and elements (followers) as rows
+}
 \source{
 \url{https://snap.stanford.edu/data/}
 }
@@ -17,4 +19,3 @@ dataset is anonymized and based on the ego-Twitter network from Stanford
 Large Network Dataset Collection.
 }
 \keyword{datasets}
-
